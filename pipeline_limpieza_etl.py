@@ -1,13 +1,19 @@
 import pandas as pd
+import os
+from dotenv import load_dotenv
 from sqlalchemy import create_engine
 
-# 1. Configuración de conexión a PostgreSQL
-DB_USER = "postgres"
-DB_PASS = "C0n3x10n"  # <--- Reemplaza con tu contraseña de PostgreSQL
-DB_HOST = "localhost"
-DB_PORT = "5432"
-DB_NAME = "postgres"
+# Cargar variables del archivo .env
+load_dotenv()
 
+# 1. Configuración de conexión a PostgreSQL
+DB_USER = os.getenv("DB_USER", "postgres")
+DB_PASS = os.getenv("DB_PASS")
+DB_HOST = os.getenv("DB_HOST", "localhost")
+DB_PORT = os.getenv("DB_PORT", "5432")
+DB_NAME = os.getenv("DB_NAME", "postgres")
+
+# Cadena de conexión ajustada
 engine = create_engine(f"postgresql://{DB_USER}:{DB_PASS}@{DB_HOST}:{DB_PORT}/{DB_NAME}")
 
 print("--- 1. EXTRAER: Leyendo archivo de Excel bruto ---")

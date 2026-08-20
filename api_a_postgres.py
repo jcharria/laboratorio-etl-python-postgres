@@ -1,11 +1,12 @@
 import requests
 import pandas as pd
+import os
 from datetime import datetime
 from sqlalchemy import create_engine
 
 # 1. Configuración de conexión a PostgreSQL
 DB_USER = "postgres"
-DB_PASS = "C0n3x10n"  # <--- Reemplaza con tu contraseña de PostgreSQL
+DB_PASS = os.getenv("DB_PASS", "TU_CONTRASEÑA_AQUI")
 DB_HOST = "localhost"
 DB_PORT = "5432"
 DB_NAME = "postgres"
