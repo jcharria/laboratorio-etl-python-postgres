@@ -1,0 +1,8 @@
+# Ocultar archivos de datos locales y temporales
+*.xlsx
+*.csv
+__pycache__/
+.vscode/
+
+# Evitar subir credenciales
+*.env
